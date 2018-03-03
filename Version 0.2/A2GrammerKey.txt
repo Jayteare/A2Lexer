@@ -1,0 +1,15 @@
+A1 Grammar
+Pgm = kwdprog brace1 Stmts brace2
+Slist = Stmt semi Slist | eps
+Stmt = S_Asgn | S_In | S_Out
+S_Asgn = id equal E
+S_In = id equal kwdinput
+S_Out = kwdprint paren1 Elist paren2
+Elist = E Elist2 | eps
+Elist2 = comma Elist
+E = E Opadd T | T
+T = T Opmul F | F
+F = Fatom | paren1 E paren2
+Fatom = id | int | float | string
+Opadd = plus | minus
+Opmul = aster | slash | caret
